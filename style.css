@@ -1,0 +1,274 @@
+/* ========================= */
+/* OGÓLNE */
+/* ========================= */
+
+html {
+    scroll-behavior: smooth; /* płynne przewijanie */
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    color: white;
+    background-image: url("tlo.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.55);
+    z-index: -1;
+}
+
+/* ========================= */
+/* HEADER */
+/* ========================= */
+
+header {
+    position: relative;
+    background: rgba(20, 20, 20, 0.65);
+    backdrop-filter: blur(18px);
+    padding: 30px 20px;
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 600;
+    border-bottom-left-radius: 25px;
+    border-bottom-right-radius: 25px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+}
+
+header::before {
+    content: "⚽";
+    position: absolute;
+    left: 30px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 2.5rem;
+    animation: spin 4s linear infinite;
+}
+
+header::after {
+    content: "⚽";
+    position: absolute;
+    right: 30px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 2.5rem;
+    animation: spin 4s linear infinite reverse;
+}
+
+@keyframes spin {
+    0% { transform: translateY(-50%) rotate(0deg); }
+    100% { transform: translateY(-50%) rotate(360deg); }
+}
+
+header span {
+    text-shadow: 0 0 15px rgba(0,255,100,0.6);
+}
+
+/* ========================= */
+/* NAVBAR */
+/* ========================= */
+
+.navbar {
+    position: sticky;
+    top: 0;
+    background: rgba(20, 20, 20, 0.8);
+    backdrop-filter: blur(15px);
+    display: flex;
+    justify-content: center;
+    z-index: 1000;
+    padding: 12px 0;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.5);
+}
+
+.navbar ul {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar li a {
+    color: #00ff88;
+    text-decoration: none;
+    font-weight: 600;
+    padding: 8px 15px;
+    border-radius: 12px;
+    transition: background 0.3s, color 0.3s;
+}
+
+.navbar li a:hover {
+    background: #00ff88;
+    color: #000;
+}
+
+/* ========================= */
+/* SEKCJE – oddzielające zielone kreski */
+/* ========================= */
+
+section {
+    border-top: 3px solid #00ff88; /* zielona kreska */
+    padding-top: 40px;
+    margin-top: 20px;
+}
+
+section:first-of-type {
+    border-top: none;
+    margin-top: 0;
+    padding-top: 0;
+}
+
+/* ========================= */
+/* MAIN */
+/* ========================= */
+
+main {
+    padding: 30px 20px;
+}
+
+/* ========================= */
+/* KARTA MECZU */
+/* ========================= */
+
+.mecz {
+    max-width: 850px;
+    margin: 35px auto;
+    background: rgba(25, 25, 25, 0.7);
+    backdrop-filter: blur(20px);
+    border-radius: 24px;
+    padding: 30px;
+    box-shadow: 0 15px 50px rgba(0,0,0,0.6);
+    border: 1px solid rgba(255,255,255,0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    animation: fadeInUp 0.6s ease;
+}
+
+.mecz:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 60px rgba(0,0,0,0.7);
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* ========================= */
+/* NAGŁÓWEK MECZU */
+/* ========================= */
+
+.naglowek-meczu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.6rem;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.druzyna {
+    padding: 10px 22px;
+    border-radius: 14px;
+    font-weight: 600;
+}
+
+.druzyna.czarna { background: linear-gradient(135deg, #000, #333); }
+.druzyna.niebieska { background: linear-gradient(135deg, #005eff, #00aaff); }
+
+.wynik {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: #00ff88;
+}
+
+/* ========================= */
+/* SZCZEGÓŁY MECZU */
+/* ========================= */
+
+.szczegoly {
+    display: flex;
+    justify-content: space-between;
+    gap: 25px;
+}
+
+.sklad h4 { margin-bottom: 10px; font-weight: 600; color: #00ff88; }
+.sklad ul { list-style: none; padding: 0; margin: 0; }
+.sklad li { padding: 4px 0; opacity: 0.9; }
+
+/* ========================= */
+/* WYNIK OGÓLNY */
+/* ========================= */
+
+.wynik-ogolny {
+    margin-top: 25px;
+    font-size: 1.3rem;
+    font-weight: bold;
+    text-align: center;
+    color: #00ff88;
+}
+
+/* ========================= */
+/* STRZELCY – wygląd kart */
+/* ========================= */
+
+.strzelcy-lista {
+    max-width: 400px;
+    margin: 20px auto;
+    padding: 0;
+}
+
+.strzelcy-lista li {
+    list-style: none;
+    background: rgba(0,255,136,0.2);
+    padding: 12px 18px;
+    margin-bottom: 10px;
+    border-radius: 14px;
+    font-weight: 600;
+    box-shadow: 0 5px 15px rgba(0,255,136,0.3);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.strzelcy-lista li:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0,255,136,0.5);
+}
+
+/* ========================= */
+/* TABELA DRUŻYN */
+.tabela-druzyn { width: 100%; max-width: 600px; margin: 20px auto; border-collapse: collapse; }
+.tabela-druzyn th, .tabela-druzyn td { border: 1px solid #00ff88; padding: 10px; text-align: center; }
+.tabela-druzyn th { background: rgba(0,255,136,0.2); }
+
+#strzelcy h2,
+#tabela h2 {
+    text-align: center;
+}
+
+/* ========================= */
+/* FOOTER */
+footer {
+    margin-top: 50px;
+    padding: 20px;
+    background: rgba(20, 20, 20, 0.7);
+    backdrop-filter: blur(15px);
+    text-align: center;
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+/* ========================= */
+/* RESPONSIVE */
+@media(max-width: 700px){
+    .naglowek-meczu { flex-direction: column; gap: 12px; }
+    .szczegoly { flex-direction: column; gap: 15px; }
+    .wynik { font-size: 2rem; }
+    .navbar ul { flex-direction: column; gap: 12px; }
+}
